@@ -1,0 +1,101 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">轮播图</h1>
+</div>
+<div class="wrapper-md" ng-controller="CarouselListController">
+  <!-- toaster directive -->
+  <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+  <!-- / toaster directive -->
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        轮播图&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="row wrapper">
+      <div class="panel-body">
+        <a ui-sref="app.carousel.edit">
+          <button class="btn btn-success btn-sm">
+            <i class="fa fa-fw m-r-xs fa-plus"></i> 添加轮播图</button>
+        </a>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped b-t b-light">
+        <thead>
+          <tr>
+            <th>编号</th>
+            <th>名称</th>
+            <th>排序</th>
+            <th>图片链接</th>
+            <th>描述</th>
+            <th>状态</th>
+            <th style="width:180px;">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in items">
+            <td>{{item.sn}}</td>
+            <td>
+              <span class="text-ellipsis">{{item.title}}</span>
+            </td>
+            <td>
+              <span class="text-ellipsis">{{item.indexes}}</span>
+            </td>
+            <td>
+              <span class="text-ellipsis">{{item.url}}</span>
+            </td>
+            <td>
+              <span class="text-ellipsis">{{item.content}}</span>
+            </td>
+            <td>
+              <span class="label bg-primary inline m-t-sm" ng-show="item.disable == 0">禁用</span>
+              <span class="label bg-success inline m-t-sm" ng-show="item.disable == 1">启用</span>
+            </td>
+            <td>
+                <button class="btn btn-sm btn-info" ng-click="edit(item.sn)">编辑</button>
+                <button class="btn btn-sm btn-danger" ng-click="remove(item.sn)">删除</button>
+            </td>
+          </tr>
+          <tr ng-if="carouselList.length <= 0">
+            <td colspan="4" style="
+                text-align:  center;
+                height: 20rem;
+                min-height: 4rem;
+                line-height: 20rem;
+                background-color:  white;
+            ">当前列表为空</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <footer class="panel-footer">
+      <div class="row">
+        <div class="col-sm-4 hidden-xs">
+        </div>
+        <div class="col-sm-4 text-center">
+          <small class="text-muted inline m-t-sm m-b-sm" ng-if="products.length > 0">显示 {{((now-1)*page_size)+1}}-{{now*page_size>totals?totals:now*page_size}}条，共计 {{totals}} 条</small>
+          <small class="text-muted inline m-t-sm m-b-sm" ng-if="products.length <= 0">显示 0 条，共计 0 条</small>
+        </div>
+        <div class="col-sm-4 text-right text-center-xs">
+          <ul class="pagination pagination-sm m-t-none m-b-none">
+            <!-- 上一页 -->
+            <li ng-click="prePage()" class="{{now == 1?'disabled':''}}" ng-if="products.length > 0">
+              <a href>
+                <i class="fa fa-chevron-left"></i>
+              </a>
+            </li>
+            <!-- 当前页 -->
+            <li ng-repeat="page in pageArray" ng-click="changePage(page)" class="{{now == page?'active':''}}">
+              <a href>{{page}}</a>
+            </li>
+            <!-- 下一页 -->
+            <li ng-click="nextPage()" class="{{now == pages?'disabled':''}}" ng-if="products.length > 0">
+              <a href>
+                <i class="fa fa-chevron-right"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>

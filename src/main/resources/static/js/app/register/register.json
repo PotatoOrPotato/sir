@@ -1,0 +1,15 @@
+ {
+        "status":80200,
+        "message":"success",
+        "data":[
+            {"title":"天元陆兵","code":1},
+            {"title":"合伙人","code":2},
+            {"title":"OEM","code":3},
+            {"title":"连锁","code":4},
+            {"title":"项目客户","code":5},
+            {"title":"供应商","code":6},
+            {"title":"车主","code":7},
+            {"title":"会员","code":8},
+            {"title":"城市分公司","code":9}
+        ]
+    }

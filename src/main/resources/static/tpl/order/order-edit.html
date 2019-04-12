@@ -1,0 +1,62 @@
+<!--
+  作者 尹乐乐
+  日期 2019年2月13日
+ -->
+<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">订单信息</h1>
+</div>
+<div class="wrapper-md" ng-controller="OrderEditController">
+    <!-- toaster directive -->
+    <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+    <!-- / toaster directive -->
+    <div class="panel panel-default">
+        <div class="panel-heading font-bold" ng-show="sn">
+            修改订单信息
+        </div>
+        <div class="panel-heading font-bold" ng-hide="sn">
+            添加订单信息
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal">
+                <div class="line line-dashed b-b line-lg pull-in"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">订单类型</label>
+                    <div class="col-sm-8">
+                        <select class="form-control m-t" ng-model="typeValue" required>
+                            <option value="">---请选择订单类型---</option>
+                            <option ng-repeat="typeA in typeArr" ng-selected="typeValue==typeA.value" value="{{typeA.value}}">{{typeA.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="line line-dashed b-b line-lg pull-in"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">订单状态</label>
+                    <div class="col-sm-8">
+                        <select class="form-control m-t" ng-model="statusValue" required>
+                            <option value="">---请选择订单状态---</option>
+                            <option ng-repeat="status in statusArr" ng-selected="statusValue==status.value" value="{{status.value}}">{{status.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="line line-dashed b-b line-lg pull-in"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">接单人</label>
+                    <div class="col-sm-8">
+                        <select class="form-control m-t" ng-model="userSn" required>
+                            <option value="">---请选择接单人---</option>
+                            <option ng-repeat="user in users" ng-selected="userSn==user.sn" value="{{user.sn}}">{{user.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-8">
+                        <a ui-sref="app.order.list">
+                            <button type="submit" class="btn btn-default">返回</button>
+                        </a>
+                        <button type="submit" class="btn btn-success" ng-click="save()">保存</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

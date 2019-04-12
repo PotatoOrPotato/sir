@@ -1,0 +1,20 @@
+[
+    { 
+        "name": "设备",
+        "key": "SB",
+        "subcategorys": [
+            { "name": "AUI6100", "key": "SB1" },
+            { "name": "AUI6200", "key": "SB2" }
+        ]
+    },
+    {
+        "name": "油品",
+        "key": "YP",
+        "subcategorys": []
+    },
+    {
+        "name": "耗材",
+        "key": "HC",
+        "subcategorys": []
+    }
+]

@@ -1,0 +1,98 @@
+<!-- 
+  author： ydj
+  time： 2018年07月05日 10：29 ：33
+  content ：商品管理之单位列表
+ -->
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">会员管理</h1>
+</div>
+<div class="wrapper-md" >
+
+  <div class="panel panel-default" ng-controller="RoleCtrl">
+    <div class="panel-heading">
+      角色列表&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="row wrapper">
+      <div class="panel-body">
+        <a ui-sref="app.role.edit">
+          <button class="btn btn-success btn-sm">
+            <i class="fa fa-fw m-r-xs fa-plus"></i> 添加角色</button>
+        </a>
+      </div>
+      <div class="col-sm-3 m-b-xs">
+        <!-- <div class="input-group">
+          <select class="input-sm form-control w-sm inline v-middle" ng-model="cat">
+            <option ng-repeat="opt in category" value={{opt.value}}>{{opt.name}}</option>
+          </select>
+          <span class="input-group-btn">
+            <button class="btn btn-sm btn-default">查询</button>
+          </span>
+        </div> -->
+      </div>
+      <div class="col-sm-6">
+      </div>
+      <div class="col-sm-3">
+        <!-- <div class="input-group">
+          <input type="text" class="input-sm form-control" placeholder="Search">
+          <span class="input-group-btn">
+            <button class="btn btn-sm btn-default" type="button">搜索</button>
+          </span>
+        </div> -->
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped b-t b-light">
+        <thead>
+          <tr>
+            <th>角色</th>
+            <th>权限</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="role in roleList">
+            <td>
+              <span class="text-ellipsis">{{role.title}}</span>
+            </td>
+            <td>
+              <span class="text-ellipsis">审核</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <footer class="panel-footer">
+      <div class="row">
+        <div class="col-sm-4 hidden-xs">
+          <!-- <select class="input-sm form-control w-sm inline v-middle">
+            <option value="0">Bulk action</option>
+            <option value="1">Delete selected</option>
+            <option value="2">Bulk edit</option>
+            <option value="3">Export</option>
+          </select>
+          <button class="btn btn-sm btn-default">Apply</button> -->
+        </div>
+        <div class="col-sm-4 text-center">
+          <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
+        </div>
+        <div class="col-sm-4 text-right text-center-xs">
+          <ul class="pagination pagination-sm m-t-none m-b-none">
+            <li>
+              <a href>
+                <i class="fa fa-chevron-left"></i>
+              </a>
+            </li>
+            <li ng-repeat="page in pageArray" ng-click="changePage(page)">
+              <a href>{{page}}</a>
+            </li>
+           
+            <li>
+              <a href>
+                <i class="fa fa-chevron-right"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>

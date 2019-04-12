@@ -1,0 +1,53 @@
+<!-- 
+  作者 尹乐乐
+  日期 2018年11月25日
+  描述 用户信息
+ -->
+<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">分配权限</h1>
+</div>
+<div class="wrapper-md" ng-controller="RolePermissionController">
+    <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+    <div class="panel panel-default">
+        <div class="panel-heading font-bold">
+            分配权限
+        </div>
+        <div class="panel-body">
+            <div class="form-horizontal">
+                <div class="line line-dashed b-b line-lg pull-in"></div>
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">全选</label>
+                    <div class="col-sm-10">
+                        <div class="checkbox">
+                            <label class="i-checks">
+                                <input type="checkbox" ng-checked="checkedAll" ng-model="checkedAll" ng-click="selectAll()">
+                                <i></i>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="line line-dashed b-b line-lg pull-in"></div>
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">权限</label>
+                    <div class="col-sm-10">
+                        <div class="checkbox" ng-repeat=" item in permissionArrdesc">
+                            <label class="i-checks">
+                                <input type="checkbox" ng-model="checked" ng-checked="item.active" ng-click="selectOne(item)">
+                                <i></i>
+                                {{item.title}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-8">
+                        <a ui-sref="app.role.list">
+                            <button type="submit" class="btn btn-default">返回</button>
+                        </a>
+                        <button type="submit" class="btn btn-success" ng-click="save()">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

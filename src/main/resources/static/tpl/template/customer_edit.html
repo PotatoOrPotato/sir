@@ -1,0 +1,85 @@
+<!-- 
+  作者 尹道娟
+  日期 2018年07月02日
+  描述 客户管理之修改客户信息和密码
+ -->
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">客户管理</h1>
+</div>
+<div class="wrapper-md" ng-controller="">
+  <!-- toaster directive -->
+  <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+  <!-- / toaster directive -->
+  <!-- 修改个人信息 -->
+  <div class="panel panel-default">
+    <div class="panel-heading font-bold">
+      个人信息
+    </div>
+    <div class="panel-body">
+      <form class="form-horizontal" method="get">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">名称</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="input-id-1" ng-model="name">
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">图片链接</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="input-id-1" ng-model="name">
+            </div>
+          </div>
+          <div class="line line-dashed b-b line-lg pull-in"></div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">状态</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="input-id-1" ng-model="name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">公司地址</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="input-id-1" ng-model="name">
+          </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <button type="submit" class="btn btn-default">返回</button>
+            <button type="submit" class="btn btn-success" ng-click="save()">保存</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- 修改密码-->
+  <div class="panel panel-default">
+    <div class="panel-heading font-bold">
+      修改密码
+    </div>
+    <div class="panel-body">
+      <form class="form-horizontal" method="get">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">新密码</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="input-id-1" ng-model="name">
+          </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">确认密码</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="input-id-1" ng-model="name">
+          </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <button type="submit" class="btn btn-default">返回</button>
+            <button type="submit" class="btn btn-danger" ng-click="save()">修改密码</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

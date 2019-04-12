@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<script type="text/javascript" src="jquery-1.8.3.js"></script>
+<head>
+	<meta charset="UTF-8" />
+	<title>图片上传</title>
+</head>
+<body>
+	<input onchange="photoChanged(this)" type="file"/>
+</body>
+<script type="text/javascript">
+ function photoChanged(dom){
+    var file = dom.files[0];
+
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function (e) {
+//      $("#WordFile").next().append("<img src='"+reader.result+"'>");
+    };
+
+    var formData = new FormData();
+    formData.append("imageArr",file);
+    formData.append("folderName","Others");
+    $.ajax({
+      url: 'localhost:8087/demo/uploadImage',
+//    url:environment.baseUrl + '/platform/showDetail/add',
+      type: "POST",
+      //headers:{'uid':sessionStorage.getItem('uid'),'Authorization': sessionStorage.getItem('Authorization')},
+      data:formData,
+      async:true,
+      contentType: false,
+      processData:false,
+      success:function(data){
+
+	   },
+      error:function(){
+        alert("上传失败！");
+      }
+    });
+     }
+</script>
+</html>

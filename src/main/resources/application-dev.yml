@@ -1,0 +1,94 @@
+server:
+  port: 8087
+spring:
+#  mvc:
+#    view:
+#      prefix: /
+#      suffix: .html
+  messages:
+    encoding: UTF-8
+  banner:
+    charset: UTF-8
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  datasource:
+    url: jdbc:mysql://47.104.152.19:33106/mydatabase?useUnicode=true&characterEncoding=utf-8&socketTimeout=60000
+    hikari:
+      connection-init-sql: SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci
+    username: bsir
+    password: 123456
+    # driver-class-name: com.mysql.jdbc.Driver
+  profiles:
+    active: dev
+  redis:
+    host: 47.104.152.19
+    port: 26378
+    password: 123456
+  jpa:
+    database: mysql
+    show-sql: true #显示sql语句
+    hibernate:
+      ddl-auto: update #该配置自动检查实体和数据库表是否一致，如果不一致则会进行更新数据库表;
+#  thymeleaf:
+#    cache: false
+#    mode: HTML5
+#    encoding: UTF-8
+#    servlet:
+#      content-type: text/html
+#   # prefix: classpath:/templates/
+#    prefix: classpath:/static/
+#    suffix: .html
+appJiGuang:
+  appKey: f00068a1b539cde3023133ee
+  masterSecret: 1e9650fcf13698be41f7a5b8
+qiNiuYun:
+  accessKey: b9VtX-t9lPpSsA0eRibdTxz-dLCuRY9NjKsgEs8t
+  secretKey: Nbhh3z_KFrUEk4jaRanTT5o4MssWe_IYl_6ycf7p
+  bucket: mzmall-image
+baidu:
+  ocr:
+    AppID: 14913854
+    ApiKey: uGs3FsoK6xvWO0bUUA7m4Ria
+    SecretKey: MlIVjiI6BGgqIOCb2QnYfhG9Ep9YgMN5
+info:
+  app:
+    name: spring-boot-actuator
+    version: 1.0.0
+    test: test
+management:
+  endpoint:
+    web:
+      exposure: include.*
+      base-path : /manage
+    health:
+      show-details: always
+    shutdown:
+      enabled: true # 启用接口关闭 Spring Boot
+pagehelper:
+  helperDialect: mysql # 指定分页插件使用哪种方言
+  reasonable: true # 默认值为false。当该参数设置为 true 时，pageNum<=0 时会查询第一页
+  supportMethodsArguments: true # 为了支持startPage（1,5）
+  # 为了支持startPage(Object params)方法
+  params: count=countSql
+http:
+  maxTotal: 100 # 最大连接数
+  defaultMaxPerRoute: 20 # 并发
+  connectTimeout: 1000 # 超时
+  connectionRequestTimeout: 500 # 连接时间
+  socketTimeout: 10000 # 传输最长时间
+  staleConnectionCheckEnabled: true # 提交请求前的测试
+sop:
+  swagger:
+    enable: true
+    packageScan: com.example
+    title: UserController Restfull API
+    description: UserController Restfull API
+    version: 3.0
+sir:
+  file:
+    location: /root/test/file/
+  image:
+    location: /root/test/image/

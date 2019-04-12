@@ -1,0 +1,114 @@
+<!-- 
+    作者 尹道娟
+    时间 2018年07月02日
+    内容 人员管理列表
+ -->
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">人员管理</h1>
+</div>
+<div class="wrapper-md" ng-controller="CustomerListCtrl">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      人员列表&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="row wrapper">
+      <div class="col-sm-5 m-b-xs">
+      </div>
+      <div class="col-sm-4">
+      </div>
+      <div class="col-sm-3">
+        <div class="input-group">
+          <input type="text" class="input-sm form-control" placeholder="Search">
+          <span class="input-group-btn">
+            <button class="btn btn-sm btn-default" type="button">搜索</button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped b-t b-light">
+        <thead>
+          <tr>
+            </th>
+            <th>用户名</th>
+            <th>姓名</th>
+            <th>公司名称</th>
+            <th>联系电话</th>
+            <th>类型</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="cus in customers">
+            <td>
+              <span class="text-ellipsis">{{cus.username}}</span>
+            </td>
+            <td>
+              <span class="text-ellipsis">{{cus.name}}</span>
+            </td>
+            <td>
+              {{cus.company}}
+            </td>
+            <td>{{cus.telephone}}</td>
+            <td>
+              <span class="label bg-primary inline m-t-sm" ng-show="cus.status==0">{{cus.status_label}}</span>
+              <span class="label bg-danger inline m-t-sm" ng-show="cus.status==1">{{cus.status_label}}</span>
+              <span class="label bg-success inline m-t-sm" ng-show="cus.status==2">{{cus.status_label}}</span>
+            </td>
+            <td>
+              <button class="btn btn-sm btn-success" ng-click="enable(cus.id)" ng-show="cus.status!=2">启用</button>
+              <button class="btn btn-sm btn-danger" ng-click="disable(cus.id)" ng-show="cus.status==2">禁用</button>
+              <a ui-sref="app.customer.edit"><button class="btn btn-sm btn-info" >编辑</button></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <footer class="panel-footer">
+      <div class="row">
+        <div class="col-sm-4 hidden-xs">
+          <select class="input-sm form-control w-sm inline v-middle">
+            <option value="0">Bulk action</option>
+            <option value="1">Delete selected</option>
+            <option value="2">Bulk edit</option>
+            <option value="3">Export</option>
+          </select>
+          <button class="btn btn-sm btn-default">Apply</button>
+        </div>
+        <div class="col-sm-4 text-center">
+          <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
+        </div>
+        <div class="col-sm-4 text-right text-center-xs">
+          <ul class="pagination pagination-sm m-t-none m-b-none">
+            <li>
+              <a href>
+                <i class="fa fa-chevron-left"></i>
+              </a>
+            </li>
+            <li>
+              <a href>1</a>
+            </li>
+            <li>
+              <a href>2</a>
+            </li>
+            <li>
+              <a href>3</a>
+            </li>
+            <li>
+              <a href>4</a>
+            </li>
+            <li>
+              <a href>5</a>
+            </li>
+            <li>
+              <a href>
+                <i class="fa fa-chevron-right"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>

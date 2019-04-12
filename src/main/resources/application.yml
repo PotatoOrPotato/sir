@@ -1,0 +1,26 @@
+server:
+  port: 8087
+spring:
+  # 配置链接数据库
+  datasource:
+    name: db
+    url: jdbc:mysql://47.104.152.19:33106/mydatabase?useUnicode=true&characterEncoding=utf-8&socketTimeout=60000
+    username: bsir
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  # 配置使用yml文件
+  profiles:
+    active: dev
+  # 配置--redis
+  redis:
+    host: 47.104.152.19
+    port: 26378
+    password: 123456
+# debug: true
+# info: true
+# error: true
+logging:
+  # file: E:\test\logs\logger.log
+  file: /root/logs/logger.log
+  config:
+    classpath: logging-config.yml

@@ -1,0 +1,91 @@
+{
+    "status": 80200,
+    "message": "success",
+    "data": {
+        "sn": "O478569440264396800",
+        "total": 66.6,
+        "status": 7,
+        "date": 1534171712000,
+        "goods": [
+            {
+                "id": 2348,
+                "title": "中华",
+                "code": "010010",
+                "category": "设备",
+                "count": 4,
+                "image": null,
+                "price": 3.33,
+                "total": null,
+                "providers": [
+                    {
+                        "id": 50,
+                        "name": "天元陆兵",
+                        "count": 40
+                    },
+                    {
+                        "id": 55,
+                        "name": "车安达",
+                        "count": 80
+                    }
+                ]
+            },
+            {
+                "id": 2349,
+                "title": "空调清洗机",
+                "code": "010011",
+                "category": "设备",
+                "count": 0,
+                "image": null,
+                "price": 3.33,
+                "total": null,
+                "providers": [
+                    {
+                        "id": 50,
+                        "name": "天元陆兵",
+                        "count": 160
+                    }
+                ]
+            }
+        ],
+        "unshipGoods": [
+            {
+                "id": 2348,
+                "title": "中华",
+                "code": "010010",
+                "category": "设备",
+                "count": 4,
+                "image": null,
+                "price": 3.33,
+                "total": null,
+                "providers": [
+                    {
+                        "id": 50,
+                        "name": "天元陆兵",
+                        "count": 40
+                    }
+                ]
+            },
+            {
+                "id": 2349,
+                "title": "空调清洗机",
+                "code": "010011",
+                "category": "设备",
+                "count": 0,
+                "image": null,
+                "price": 3.33,
+                "total": null,
+                "providers": [
+                    {
+                        "id": 50,
+                        "name": "天元陆兵",
+                        "count": 160
+                    }
+                ]
+            }
+        ],
+        "contact": "合伙人1",
+        "mobile": "13600001000",
+        "address": "合伙人1大街合伙人1路1号",
+        "audit_desc": null
+    }
+}

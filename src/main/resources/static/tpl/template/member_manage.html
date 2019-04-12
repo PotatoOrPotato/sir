@@ -1,0 +1,112 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">会员管理</h1>
+</div>
+<div class="wrapper-md" ng-controller="MemberCtrl">
+  <!-- toaster directive -->
+  <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+  <!-- / toaster directive -->
+  <div class="panel panel-default">
+    <div class="panel-heading">会员列表</div>
+    <div class="row wrapper">
+      <div class="col-sm-3 m-b-xs">
+        <div class="input-group">
+          <!-- select 绑定的键值对的value值 -->
+          <select class="input-sm form-control w-sm inline v-middle" ng-model="type" ng-options="row.code as row.title for row in types">
+          </select>
+          <span class="input-group-btn">
+            <button class="btn btn-sm btn-default" ng-click="getUserListByCompanyType()">查询</button>
+          </span>
+        </div>
+      </div>
+      <div class="col-sm-6">
+      </div>
+      <div class="col-sm-3">
+        <div class="input-group">
+          <!-- input绑定的时输入的内容 -->
+          <input type="text" class="input-sm form-control" placeholder="手机号 姓名 公司名称" ng-model="condition">
+          <span class="input-group-btn">
+            <button class="btn btn-sm btn-default" type="button" ng-click="getUserListByCondition()">搜索</button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped b-t b-light">
+        <thead>
+          <tr>
+            <th>姓名</th>
+            <th>角色</th>
+            <th>公司名称</th>
+            <th>手机号</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="info in infos" ng-show="showflage">
+            <td>
+              <span>{{info.name}}</span>
+            </td>
+            <td>{{info.roles[0].title}}</td>
+            <td>
+              <span class="text-ellipsis">{{info.company_name}}</span>
+            </td>
+            <td>
+              <span class="text-ellipsis">{{info.mobile}}</span>
+            </td>
+            <td>
+              <button class="btn btn-sm btn-danger" ng-click="delete(info.id)">删除</button>
+            </td>
+          </tr>
+          <tr ng-if="infos.length <= 0">
+            <td colspan="4" style="
+              text-align:  center;
+              height: 20rem;
+              min-height: 4rem;
+              line-height: 20rem;
+              background-color:  white;
+          ">当前列表为空</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <footer class="panel-footer">
+      <div class="row">
+        <div class="col-sm-4 hidden-xs">
+          <!-- <select class="input-sm form-control w-sm inline v-middle">
+            <option value="0">Bulk action</option>
+            <option value="1">Delete selected</option>
+            <option value="2">Bulk edit</option>
+            <option value="3">Export</option>
+            {{(page_size>total)?(now*total):
+            (now*page_size)}}
+          </select>((total-(now-1)*page_size))%(page_size)!=0?(((now-1)*page_size)+((total-(now-1)*page_size))%(page_size)):(now*page_size)
+          <button class="btn btn-sm btn-default">Apply</button> -->
+        </div>
+        <div class="col-sm-4 text-center">
+          <small class="text-muted inline m-t-sm m-b-sm" ng-if="infos.length > 0">显示 {{((now-1)*page_size)+1}}-{{now*page_size>total?total:now*page_size}}条，共计{{total}} 条</small>
+          <small class="text-muted inline m-t-sm m-b-sm" ng-if="infos.length <= 0">显示 0 条，共计 0 条</small>
+        </div>
+        <div class="col-sm-4 text-right text-center-xs">
+          <ul class="pagination pagination-sm m-t-none m-b-none">
+            <!-- 上一页 -->
+            <li ng-click="prePage()" class="{{now==1?'disabled':''}}" ng-if="infos.length > 0">
+              <a href>
+                <i class="fa fa-chevron-left"></i>
+              </a>
+            </li>
+            <!-- 当前页 -->
+            <li ng-repeat="page in items" ng-click="changePage(page)" class="{{page==now?'active':''}}">
+              <a href>{{page}}</a>
+            </li>
+            <!-- 下一页 -->
+            <li ng-click="nextPage()" class="{{now==pages?'disabled':''}}" ng-if="infos.length > 0">
+              <a href>
+                <i class="fa fa-chevron-right"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
