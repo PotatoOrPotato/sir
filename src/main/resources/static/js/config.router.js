@@ -136,6 +136,68 @@ angular.module('app')
                     //     templateUrl: 'tpl/login/login.html',
                     //     resolve: load(['js/controllers/login/login.js'])
                     // })
+                    
+                      /**评价管理开始*/
+                    .state('app.evaluate', {
+                        url: '/evaluate',
+                        template: '<div ui-view class="fade-in-up"></div>',
+                    })
+                    //列表
+                    .state('app.evaluate.list', {
+                        url: '/list',
+                        templateUrl: 'tpl/evaluate/evaluate-list.html',
+                        resolve: load(['toaster', 'angularFileUpload', 'js/controllers/evaluate/evaluate-list.controller.js'])
+                    })
+                    //编辑
+                    .state('app.evaluate.edit', {
+                        param: {'sn': null},
+                        url: '/edit/:sn',
+                        templateUrl: 'tpl/evaluate/evaluate-edit.html',
+                        resolve: load(['toaster', 'angularFileUpload', 'js/controllers/evaluate/evaluate-edit.controller.js'])
+                    })
+                    /**评价管理结束*/
+                    
+                    /**店铺管理开始*/
+                    .state('app.shop', {
+                        url: '/shop',
+                        template: '<div ui-view class="fade-in-up"></div>',
+                    })
+                    //列表
+                    .state('app.shop.list', {
+                        url: '/list',
+                        templateUrl: 'tpl/shop/shop-list.html',
+                        resolve: load(['toaster', 'angularFileUpload', 'js/controllers/shop/shop-list.controller.js'])
+                    })
+                    //编辑
+                    .state('app.shop.edit', {
+                        param: {'sn': null},
+                        url: '/edit/:sn',
+                        templateUrl: 'tpl/shop/shop-edit.html',
+                        resolve: load(['toaster', 'angularFileUpload', 'js/controllers/shop/shop-edit.controller.js'])
+                    })
+                    /**店铺管理结束*/
+                    
+                     /**采购管理开始*/
+                    .state('app.purchase', {
+                        url: '/purchase',
+                        template: '<div ui-view class="fade-in-up"></div>',
+                    })
+                    //列表
+                    .state('app.purchase.list', {
+                        url: '/list',
+                        templateUrl: 'tpl/purchase/purchase-list.html',
+                        resolve: load(['toaster', 'angularFileUpload', 'js/controllers/purchase/purchase-list.controller.js'])
+                    })
+                    //编辑
+                    .state('app.purchase.edit', {
+                        param: {'sn': null},
+                        url: '/edit/:sn',
+                        templateUrl: 'tpl/purchase/purchase-edit.html',
+                        resolve: load(['toaster', 'angularFileUpload', 'js/controllers/purchase/purchase-edit.controller.js'])
+                    })
+                    /**采购管理结束*/
+                    
+                    
                     .state('admin.signin', {
                         url: '/signin',
                         templateUrl: 'tpl/login/login.html',
