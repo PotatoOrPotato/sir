@@ -36,8 +36,36 @@
         </ul>
         <ul class="nav nav-sub dk" has-permission="GET:/api/v1/company/{company_sn}/{user_sn}/page">
             <li ui-sref-active="active">
-                <a ui-sref="app.company.list">
-                    <span>公司管理</span>
+                <a ui-sref="app.order.list">
+                    <span>订单管理</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="nav nav-sub dk" has-permission="GET:/api/v1/company/{company_sn}/{user_sn}/page">
+            <li ui-sref-active="active">
+                <a ui-sref="app.product.list">
+                    <span>产品管理</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="nav nav-sub dk" has-permission="GET:/api/v1/evaluate/{company_sn}/{user_sn}/page">
+            <li ui-sref-active="active">
+                <a ui-sref="app.evaluate.list">
+                    <span>评价管理</span>
+                </a>
+            </li>
+        </ul>
+         <ul class="nav nav-sub dk" has-permission="GET:/api/v1/shop/{company_sn}/{user_sn}/page">
+            <li ui-sref-active="active">
+                <a ui-sref="app.shop.list">
+                    <span>店铺管理</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="nav nav-sub dk" has-permission="GET:/api/v1/purchase/{company_sn}/{user_sn}/page">
+            <li ui-sref-active="active">
+                <a ui-sref="app.purchase.list">
+                    <span>采购管理</span>
                 </a>
             </li>
         </ul>
