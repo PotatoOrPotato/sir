@@ -12,7 +12,7 @@ import java.util.List;
  * @Auther: BiKaiXuan
  * @Version: V-1.0
  * @Data: Create in 2019/3/27 16:42
- * @Description: TODO
+ * @Description:
  **/
 @Service
 public class UserServiceImple implements UserService {
@@ -21,17 +21,13 @@ public class UserServiceImple implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public void insert(UserEntity userEntity) {
+    public void insertUser(UserEntity userEntity) {
         userMapper.save(userEntity);
     }
 
     @Override
-    public List<UserEntity> showAllUser() {
-        return userMapper.findAll();
-    }
-
-    @Override
-    public UserEntity selectByname(String username) {
-        return userMapper.findByUserName(username);
+    public UserEntity select(String userName) {
+        UserEntity userEntity = userMapper.findByUserName(userName);
+        return userEntity;
     }
 }

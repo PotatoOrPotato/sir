@@ -3,7 +3,8 @@ package com.bkx.b_sir.exception;
 public enum ExceptionCode {
 
     USER_ERROR(1,"当前用户不存在"),
-    PWD_ERROR(2,"密码不正确");
+    USER_NAME_ERROR(2,"当前用户名已存在，"),
+    PWD_ERROR(3,"密码不正确");
 
     private Integer index;
 

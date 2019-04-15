@@ -1,6 +1,5 @@
 package com.bkx.b_sir.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.bkx.b_sir.entity.UserEntity;
 import com.bkx.b_sir.exception.ExceptionCode;
 import com.bkx.b_sir.exception.MyException;
@@ -30,29 +29,56 @@ public class UserController {
     private UserService userService;
 
     /**
-     * 展示所有的用户
-     * @return
+     * 注册
      */
-    @GetMapping("/showAllUser")
-    public ResponseBean showAllUser(){
-        List<UserEntity> list = userService.showAllUser();
-        return ResultObject.success(list);
-    }
-
-    @PostMapping("/insert")
-    public ResponseBean run(@RequestBody UserEntity userEntity, BindingResult result){
+    @PostMapping("/regist")
+    public ResponseBean insertUser(@RequestBody UserEntity userEntity, BindingResult result){
         if (result.hasErrors()){
-            throw new MyException(ExceptionCode.USER_ERROR.getValue());
+            throw new MyException(result.getAllErrors().toString());
         }
-        userService.insert(userEntity);
-        return ResultObject.success();
+        UserEntity user = userService.select(userEntity.getUserName());
+        if (user != null){
+            throw new MyException(ExceptionCode.USER_NAME_ERROR.getValue());
+        }
+        try {
+            userService.insertUser(userEntity);
+            return ResultObject.success();
+        }catch (Exception e){
+            return ResultObject.error();
+        }
     }
 
 
-    @GetMapping("/find")
-    public ResponseBean run1(){
-        System.err.println("success");
-        return ResultObject.success();
+    /**
+     * 登录
+     */
+    @PostMapping("/login")
+    public ResponseBean login(@RequestBody UserEntity userEntity,BindingResult result){
+        if (result.hasErrors()){
+            throw new MyException(result.getAllErrors().toString());
+        }
+        UserEntity user = userService.select(userEntity.getUserName());
+        if (user == null){
+            return ResultObject.error("用户名或密码错误");
+        }else {
+            return ResultObject.success("登录成功");
+        }
     }
 
+
+    /**
+     * 个人中心
+     */
+    @PostMapping("/userDetail")
+    public ResponseBean userDetail(@RequestBody UserEntity userEntity,BindingResult result){
+        if (result.hasErrors()){
+            throw new MyException(result.getAllErrors().toString());
+        }
+        UserEntity user = userService.select(userEntity.getUserName());
+        if (user == null){
+            return ResultObject.error("用户名或密码错误");
+        }else {
+            return ResultObject.success(user.toString());
+        }
+    }
 }

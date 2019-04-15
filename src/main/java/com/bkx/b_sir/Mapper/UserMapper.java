@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserMapper extends JpaRepository<UserEntity,Long> {
 
-    UserEntity findByUserName(String username);
+    UserEntity findByUserName(String userName);
 }

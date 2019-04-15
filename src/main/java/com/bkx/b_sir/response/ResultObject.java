@@ -38,6 +38,12 @@ public class ResultObject {
 
 
     /* 错误信息 */
+    public static ResponseBean error() {
+        ResponseBean response = new ResponseBean();
+        response.setStatus(90200);
+        response.setMessage("error");
+        return response;
+    }
     public static ResponseBean error(Object data) {
         ResponseBean response = new ResponseBean();
         response.setStatus(90200);

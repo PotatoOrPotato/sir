@@ -24,11 +24,11 @@ import javax.validation.constraints.Pattern;
 @Table(name = "sir_user")
 public class UserEntity extends BaseEntity {
 
-    @Pattern(regexp = RegularUtil.REGEX_MOBILE, message = "手机号格式不正确")
+//    @Pattern(regexp = RegularUtil.REGEX_MOBILE, message = "手机号格式不正确")
     @Column(name = "mobile_phone")
     private String mobilePhone;
 
-    @Email(message="邮箱的格式不正确")
+//    @Email(message="邮箱的格式不正确")
     @Column(name = "emil")
     private String emil;
 
@@ -40,7 +40,7 @@ public class UserEntity extends BaseEntity {
     @Column(name = "password")
     private String password;
 
-    @NotNull
+//    @NotNull
     @Column(name = "name_code")
     private String nameCode;
 }

@@ -6,9 +6,15 @@ import java.util.List;
 
 public interface UserService {
 
-    void insert(UserEntity userEntity);
+    /**
+     * 注册
+     */
+    void insertUser(UserEntity userEntity);
 
-    List<UserEntity> showAllUser();
-
-    UserEntity selectByname(String username);
-}
+    /**
+     * 查询用户
+     * @param userName
+     * @return
+     */
+    UserEntity select(String userName);
+        }
